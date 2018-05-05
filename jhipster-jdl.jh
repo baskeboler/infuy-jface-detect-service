@@ -1,0 +1,32 @@
+entity PersonGroup {
+	personGroupId String
+	name String
+    description String
+}
+
+entity PersonGroupPerson {
+	personId String
+    name String
+    description String
+}
+
+entity Face {
+	persistedFaceId String
+}
+
+relationship OneToMany {
+	PersonGroup{person(name)} to PersonGroupPerson
+    PersonGroupPerson{face} to Face
+}
+
+
+
+// Set pagination options
+paginate PersonGroup, PersonGroupPerson, Face with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with jface

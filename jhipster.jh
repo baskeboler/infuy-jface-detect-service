@@ -1,0 +1,28 @@
+// JDL definition for application 'jhipster' generated with command 'jhipster export-jdl'
+
+entity PersonGroup (person_group) {
+  personGroupId String,
+  name String,
+  description String
+}
+entity PersonGroupPerson (person_group_person) {
+  personId String,
+  name String,
+  description String
+}
+entity Face (face) {
+  persistedFaceId String
+}
+entity Image (image) {
+  path String
+}
+
+relationship OneToMany {
+  PersonGroup{person} to PersonGroupPerson{personGroup},
+  PersonGroupPerson{face} to Face{personGroupPerson}
+}
+
+dto PersonGroup, PersonGroupPerson, Face, Image with mapstruct
+paginate PersonGroup, PersonGroupPerson, Face, Image with pagination
+service PersonGroup, PersonGroupPerson, Face, Image with serviceImpl
+angularSuffix PersonGroup, PersonGroupPerson, Face with jface

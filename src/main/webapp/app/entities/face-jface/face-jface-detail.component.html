@@ -1,0 +1,32 @@
+
+<div *ngIf="face">
+    <h2><span>Face</span> {{face.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Persisted Face Id</span></dt>
+        <dd>
+            <span>{{face.persistedFaceId}}</span>
+        </dd>
+        <dt><span>Person Group Person</span></dt>
+        <dd>
+            <div *ngIf="face.personGroupPersonId">
+                <a [routerLink]="['/person-group-person-jface', face.personGroupPersonId]">{{face.personGroupPersonId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'face-jface/'+ face.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

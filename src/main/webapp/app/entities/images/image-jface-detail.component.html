@@ -1,0 +1,51 @@
+
+<div *ngIf="image" class="container">
+    <h2><span>Image</span> {{image.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row">
+        <div class="col col-xs-12">
+
+            <div class="card">
+                <img [src]="image.path" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Image {{image.id}}</h5>
+                    <div class="" *ngIf="faces!=null">
+                        <ul>
+
+
+                            <li class="media" *ngFor="let f of faces">
+                                <img [src]="f.path" alt="" class="mr-3">
+                                <div class="media-body">
+                                    <h5>Face ID: {{f.faceId}}</h5>
+                                    <dl>
+                                        <dt>gender</dt>
+                                        <dd>{{f.faceAttributes.gender}}</dd>
+                                        <dt>age</dt>
+                                        <dd>{{f.faceAttributes.age}}</dd>
+                                    </dl>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit"
+                            (click)="previousState()"
+                            class="btn btn-info">
+                        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+                    </button>
+
+                    <button type="button"
+                            [routerLink]="['/', { outlets: { popup: 'image-jface/'+ image.id + '/edit'} }]"
+                            replaceUrl="true"
+                            queryParamsHandling="merge"
+                            class="btn btn-primary">
+                        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

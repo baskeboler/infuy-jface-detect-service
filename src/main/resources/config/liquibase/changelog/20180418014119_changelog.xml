@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="victor (generated)" id="1524026483013-1">
+        <createTable tableName="image_faces">
+            <column name="image_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="faces_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="victor (generated)" id="1524026483013-2">
+        <addPrimaryKey columnNames="image_id, faces_id" tableName="image_faces"/>
+    </changeSet>
+    <changeSet author="victor (generated)" id="1524026483013-3">
+        <addUniqueConstraint columnNames="faces_id" constraintName="UK_kh42go8ddv81nb6u3pd2vpfni" tableName="image_faces"/>
+    </changeSet>
+    <changeSet author="victor (generated)" id="1524026483013-4">
+        <addForeignKeyConstraint baseColumnNames="faces_id" baseTableName="image_faces" constraintName="FK21n1req70a82wm896h920bqj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="face_detection"/>
+    </changeSet>
+    <changeSet author="victor (generated)" id="1524026483013-5">
+        <addForeignKeyConstraint baseColumnNames="image_id" baseTableName="image_faces" constraintName="FK9o6p9ouliwnfivhyp2yp3uq01" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="image"/>
+    </changeSet>
+</databaseChangeLog>

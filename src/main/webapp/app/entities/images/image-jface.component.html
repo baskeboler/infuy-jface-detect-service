@@ -1,0 +1,79 @@
+<div class="container">
+    <h2>
+        <span>Images</span>
+        <button class="btn btn-primary float-right jh-create-entity create-image-jface"
+                [routerLink]="['/', { outlets: { popup: ['image-jface-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span>
+            Create new Face
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <br/>
+        <div class="col col-xs-12">
+            <div class="table-responsive" *ngIf="images">
+                <table class="table table-striped">
+                    <thead>
+                    <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                        <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+                        <th><span>Preview</span> </span></th>
+                        <!--<th jhiSortBy="personGroupPersonId"><span>Person Group Person</span> <span class="fa fa-sort"></span></th>-->
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let image of images ;trackBy: trackId">
+                        <td><a [routerLink]="['../image-jface', image.id ]">{{image.id}}</a></td>
+                        <td>
+                            <div *ngIf="image.path">
+                                <!--<a [routerLink]="['../person-group-person-jface', image.personGroupPersonId  ]" >{{image.personGroupPersonId}}</a>-->
+                                <img class="img-thumbnail" [src]="image.path" alt="">
+                            </div>
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit"
+                                        [routerLink]="['../image-jface', image.id ]"
+                                        class="btn btn-info btn-sm">
+                                    <span class="fa fa-eye"></span>
+                                    <span class="d-none d-md-inline">View</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', { outlets: { popup: 'image-jface/'+ image.id + '/edit'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="btn btn-primary btn-sm">
+                                    <span class="fa fa-pencil"></span>
+                                    <span class="d-none d-md-inline">Edit</span>
+                                </button>
+                                <button type="submit"
+                                        [routerLink]="['/', { outlets: { popup: 'image-jface/'+ image.id + '/delete'} }]"
+                                        replaceUrl="true"
+                                        queryParamsHandling="merge"
+                                        class="btn btn-danger btn-sm">
+                                    <span class="fa fa-remove"></span>
+                                    <span class="d-none d-md-inline">Delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="images && images.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,101 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="victor (generated)" id="1523842779461-1">
+        <createTable tableName="face_detection">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="face_detectionPK"/>
+            </column>
+            <column name="age" type="DOUBLE"/>
+            <column name="anger" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contempt" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="disgust" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fear" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="happiness" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="neutral" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sadness" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surprise" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="eye_left_bottom_x" type="DOUBLE"/>
+            <column name="eye_left_bottom_y" type="DOUBLE"/>
+            <column name="eye_left_inner_x" type="DOUBLE"/>
+            <column name="eye_left_inner_y" type="DOUBLE"/>
+            <column name="eye_left_outer_x" type="DOUBLE"/>
+            <column name="eye_left_outer_y" type="DOUBLE"/>
+            <column name="eye_left_top_x" type="DOUBLE"/>
+            <column name="eye_left_top_y" type="DOUBLE"/>
+            <column name="eye_right_bottom_x" type="DOUBLE"/>
+            <column name="eye_right_bottom_y" type="DOUBLE"/>
+            <column name="eye_right_inner_x" type="DOUBLE"/>
+            <column name="eye_right_inner_y" type="DOUBLE"/>
+            <column name="eye_right_outer_x" type="DOUBLE"/>
+            <column name="eye_right_outer_y" type="DOUBLE"/>
+            <column name="eye_right_top_x" type="DOUBLE"/>
+            <column name="eye_right_top_y" type="DOUBLE"/>
+            <column name="eyebrow_left_inner_x" type="DOUBLE"/>
+            <column name="eyebrow_left_inner_y" type="DOUBLE"/>
+            <column name="eyebrow_left_outer_x" type="DOUBLE"/>
+            <column name="eyebrow_left_outer_y" type="DOUBLE"/>
+            <column name="eyebrow_right_inner_x" type="DOUBLE"/>
+            <column name="eyebrow_right_inner_y" type="DOUBLE"/>
+            <column name="eyebrow_right_outer_x" type="DOUBLE"/>
+            <column name="eyebrow_right_outer_y" type="DOUBLE"/>
+            <column name="mouth_left_x" type="DOUBLE"/>
+            <column name="mouth_left_y" type="DOUBLE"/>
+            <column name="mouth_right_x" type="DOUBLE"/>
+            <column name="mouth_right_y" type="DOUBLE"/>
+            <column name="nose_left_alar_out_tip_x" type="DOUBLE"/>
+            <column name="nose_left_alar_out_tip_y" type="DOUBLE"/>
+            <column name="nose_left_alar_top_x" type="DOUBLE"/>
+            <column name="nose_left_alar_top_y" type="DOUBLE"/>
+            <column name="nose_right_alar_out_tip_x" type="DOUBLE"/>
+            <column name="nose_right_alar_out_tip_y" type="DOUBLE"/>
+            <column name="nose_right_alar_top_x" type="DOUBLE"/>
+            <column name="nose_right_alar_top_y" type="DOUBLE"/>
+            <column name="nose_root_left_x" type="DOUBLE"/>
+            <column name="nose_root_left_y" type="DOUBLE"/>
+            <column name="nose_tip_x" type="DOUBLE"/>
+            <column name="nose_tip_y" type="DOUBLE"/>
+            <column name="pupil_left_x" type="DOUBLE"/>
+            <column name="pupil_left_y" type="DOUBLE"/>
+            <column name="pupil_right_x" type="DOUBLE"/>
+            <column name="pupil_right_y" type="DOUBLE"/>
+            <column name="under_lip_bottom_x" type="DOUBLE"/>
+            <column name="under_lip_bottom_y" type="DOUBLE"/>
+            <column name="under_lip_top_x" type="DOUBLE"/>
+            <column name="under_lip_top_y" type="DOUBLE"/>
+            <column name="upper_lip_bottom_x" type="DOUBLE"/>
+            <column name="upper_lip_bottom_y" type="DOUBLE"/>
+            <column name="upper_lip_top_x" type="DOUBLE"/>
+            <column name="upper_lip_top_y" type="DOUBLE"/>
+            <column name="gender" type="VARCHAR(255)"/>
+            <column name="face_id" type="VARCHAR(255)"/>
+            <column name="bottom" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="left" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="right" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="top" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

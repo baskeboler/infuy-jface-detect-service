@@ -1,0 +1,45 @@
+
+<div *ngIf="personGroupPerson">
+    <h2><span>Person Group Person</span> {{personGroupPerson.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Person Id</span></dt>
+        <dd>
+            <span>{{personGroupPerson.personId}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{personGroupPerson.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{personGroupPerson.description}}</span>
+        </dd>
+        <dt><span>Person Group</span></dt>
+        <dd>
+            <div *ngIf="personGroupPerson.personGroupId">
+                <a [routerLink]="['/person-group-jface', personGroupPerson.personGroupId]">{{personGroupPerson.personGroupId}}</a>
+            </div>
+        </dd>
+    </dl>
+    <h3>Select faces for recognition</h3>
+    <div class="row" *ngIf="faces!=null">
+        <div class="col col-md-1" *ngFor="let f of faces">
+            <img [src]="f.path" alt="" class="img-fluid" (click)="submitFace(f.id)">
+        </div>
+    </div>
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <!--<button type="button"-->
+            <!--[routerLink]="['/', { outlets: { popup: 'person-group-person-jface/'+ personGroupPerson.id + '/edit'} }]"-->
+            <!--replaceUrl="true"-->
+            <!--queryParamsHandling="merge"-->
+            <!--class="btn btn-primary">-->
+        <!--<span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>-->
+    <!--</button>-->
+</div>
